@@ -60,26 +60,34 @@ st.markdown("""
     }
 
     /* Botão de Comando (Sofisticação em cada pixel) */
+    /* Botão Estilo 'Ghost' com Inversão de Cor no Hover */
     .stButton>button {
         width: 100%;
         background-color: transparent !important;
-        color: #00c853 !important; /* Verde Esmeralda */
+        color: #00c853 !important; /* Texto Verde Esmeralda (Repouso) */
         border: 1px solid #00c853 !important;
         border-radius: 4px;
         font-family: 'JetBrains Mono', monospace;
-        font-weight: 500;
+        font-weight: bold;
         font-size: 0.85rem;
         letter-spacing: 2px;
         height: 3.5em;
-        transition: all 0.3s ease;
+        transition: all 0.3s ease-in-out;
         text-transform: uppercase;
     }
 
+    /* Efeito de Inversão de Contraste */
     .stButton>button:hover {
-        background-color: #00c853 !important;
-        color: #0b0e14 !important; /* Fundo escuro ao passar o mouse */
-        box-shadow: 0 0 20px rgba(0, 200, 83, 0.4);
+        background-color: #00c853 !important; /* Fundo Verde */
+        color: #0b0e14 !important; /* TEXTO MUDA PARA PRETO NO HOVER */
+        box-shadow: 0 0 25px rgba(0, 200, 83, 0.5);
         transform: translateY(-2px);
+    }
+
+    /* Garante que o texto permaneça visível durante o clique */
+    .stButton>button:active {
+        color: #0b0e14 !important;
+        background-color: #00e676 !important;
     }
 
     /* Caixa de Resposta (Output do Sistema) */
@@ -142,7 +150,7 @@ if arquivo:
             # 2. Chamada da IA
             with st.spinner("AGENT HENRY ANALISANDO PADRÕES..."):
                 response = client.models.generate_content(
-                    model="gemini-1.5-flash", # Mantendo o 1.5 para estabilidade
+                    model="gemini-2.5-flash", # Mantendo o 1.5 para estabilidade
                     contents=(
                         "Atue como um Especialista Sênior em Blue Team. "
                         "Analise os logs a seguir, identifique ataques (SQLi, Brute Force, etc.) "
