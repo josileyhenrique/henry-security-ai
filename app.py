@@ -1,5 +1,6 @@
 import streamlit as st
 from google import genai
+import time
 
 # --- 1. CONFIGURAÇÃO DA PÁGINA (Deve ser o primeiro comando Streamlit) ---
 st.set_page_config(
@@ -60,25 +61,25 @@ st.markdown("""
 
     /* Botão de Comando (Sofisticação em cada pixel) */
     .stButton>button {
-        display: inline-block;
-        background-color: transparent;
-        color: #00c853;
-        padding: 12px 25px;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 0.85rem;
-        font-weight: bold;
-        text-decoration: none;
-        letter-spacing: 2px;
-        border: 1px solid #00c853;
+        width: 100%;
+        background-color: transparent !important;
+        color: #00c853 !important; /* Verde Esmeralda */
+        border: 1px solid #00c853 !important;
         border-radius: 4px;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 500;
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+        height: 3.5em;
         transition: all 0.3s ease;
+        text-transform: uppercase;
     }
 
     .stButton>button:hover {
-         background-color: #00c853;
-        color: #0b0e14;
+        background-color: #00c853 !important;
+        color: #0b0e14 !important; /* Fundo escuro ao passar o mouse */
         box-shadow: 0 0 20px rgba(0, 200, 83, 0.4);
-        cursor: pointer;
+        transform: translateY(-2px);
     }
 
     /* Caixa de Resposta (Output do Sistema) */
