@@ -59,12 +59,11 @@ st.markdown("""
         box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
 
-    /* Botão de Comando (Sofisticação em cada pixel) */
-    /* Botão Estilo 'Ghost' com Inversão de Cor no Hover */
+   /* Botão Estilo 'Ghost' - Versão Final de Contraste */
     .stButton>button {
         width: 100%;
         background-color: transparent !important;
-        color: #00c853 !important; /* Texto Verde Esmeralda (Repouso) */
+        color: #00c853 !important;
         border: 1px solid #00c853 !important;
         border-radius: 4px;
         font-family: 'JetBrains Mono', monospace;
@@ -76,18 +75,18 @@ st.markdown("""
         text-transform: uppercase;
     }
 
-    /* Efeito de Inversão de Contraste */
-    .stButton>button:hover {
-        background-color: #00c853 !important; /* Fundo Verde */
-        color: #0b0e14 !important; /* TEXTO MUDA PARA PRETO NO HOVER */
-        box-shadow: 0 0 25px rgba(0, 200, 83, 0.5);
-        transform: translateY(-2px);
+    /* O SEGREDO: Mirar no botão E em qualquer texto dentro dele no hover */
+    .stButton>button:hover, 
+    .stButton>button:hover p, 
+    .stButton>button:hover div, 
+    .stButton>button:hover span {
+        background-color: #00c853 !important;
+        color: #0b0e14 !important; /* Força o preto no texto */
     }
 
-    /* Garante que o texto permaneça visível durante o clique */
-    .stButton>button:active {
-        color: #0b0e14 !important;
-        background-color: #00e676 !important;
+    .stButton>button:hover {
+        box-shadow: 0 0 25px rgba(0, 200, 83, 0.5);
+        transform: translateY(-2px);
     }
 
     /* Caixa de Resposta (Output do Sistema) */
