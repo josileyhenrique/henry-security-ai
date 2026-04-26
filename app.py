@@ -27,6 +27,7 @@ st.markdown("""
     /* Ajuste do Título Principal para Verde Esmeralda */
     h1 {
         color: #00c853 !important;
+        background: linear-gradient(135deg, #00ffff, #00ff88);
         letter-spacing: 3px !important;
         text-transform: uppercase;
     }
@@ -96,8 +97,8 @@ API_KEY = st.secrets["GEMINI_API_KEY"]
 client = genai.Client(api_key=API_KEY)
 
 # --- 4. INTERFACE DO USUÁRIO (Fluxo Linear) ---
-st.title("🛡️ HENRY SECURITY")
-st.subheader("SISTEMA DE INTELIGÊNCIA EM DEFESA CIBERNÉTICA")
+
+st.header("SISTEMA DE ANÁLISE DE LOGS")
 
 # Área de Entrada
 arquivo = st.file_uploader("SISTEMA DE INGESTÃO DE LOGS (.TXT / .LOG)", type=["txt", "log"])
