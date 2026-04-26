@@ -60,24 +60,25 @@ st.markdown("""
 
     /* Botão de Comando (Sofisticação em cada pixel) */
     .stButton>button {
-        width: 100%;
-        background: linear-gradient(135deg, #00c853 0%, #009624 100%);
-        color: #0b0e14 !important;
-        border-radius: 12px;
-        border: none;
-        font-family: 'JetBrains Mono', monospace;
-        font-weight: 500;
-        font-size: 1rem;
-        letter-spacing: 1px;
-        height: 4em;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: 0 10px 20px rgba(0, 200, 83, 0.2);
+        display: inline-block;
+        background-color: transparent;
+        color: #00c853;
+        padding: 12px 25px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.85rem;
+        font-weight: bold;
+        text-decoration: none;
+        letter-spacing: 2px;
+        border: 1px solid #00c853;
+        border-radius: 4px;
+        transition: all 0.3s ease;
     }
 
     .stButton>button:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(0, 200, 83, 0.4);
-        color: #ffffff !important;
+         background-color: #00c853;
+        color: #0b0e14;
+        box-shadow: 0 0 20px rgba(0, 200, 83, 0.4);
+        cursor: pointer;
     }
 
     /* Caixa de Resposta (Output do Sistema) */
