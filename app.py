@@ -9,62 +9,76 @@ st.set_page_config(
 )
 
 # --- 2. ESTILIZAÇÃO ÉPICA (CSS Limpo e Sem Conflitos) ---
+# --- 2. ESTILIZAÇÃO SOFISTICADA HENRY SECURITY (Versão Unificada) ---
 st.markdown("""
-  <style>
-    /* Fundo Principal */
+    <style>
+    /* Fundo Dark Profundo */
     .stApp { 
         background-color: #0b0e14; 
     }
     
-    /* Títulos e Subtítulos (Seletores específicos para evitar bugs) */
-    h1, h2, h3, [data-testid="stMarkdownContainer"] p {
-        color: #00ff41 !important;
-        font-family: 'Courier New', Courier, monospace !important;
+    /* Tipografia Elegante */
+    h1, h2, h3, [data-testid="stMarkdownContainer"] p, label {
+        color: #ffffff !important;
+        font-family: 'Inter', sans-serif !important;
+        letter-spacing: 1px;
     }
 
-    /* Ajuste do File Uploader (Onde estava o erro de texto encavalado) */
+    /* Ajuste do Título Principal para Verde Esmeralda */
+    h1 {
+        color: #00c853 !important;
+        letter-spacing: 3px !important;
+        text-transform: uppercase;
+    }
+
+    /* Área de Upload Estilo Glassmorphism */
     [data-testid="stFileUploader"] {
-        border: 1px dashed #00ff41;
-        background-color: #161b22;
-        padding: 20px;
-        border-radius: 12px;
+        border: 1px solid rgba(0, 200, 83, 0.2);
+        background-color: rgba(22, 27, 34, 0.5);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        border-radius: 15px;
     }
 
-    /* Corrigindo a cor dos textos internos do Uploader que estavam bugados */
+    /* Cores dos textos internos do Uploader */
     [data-testid="stFileUploader"] label, 
     [data-testid="stFileUploader"] small, 
     [data-testid="stFileUploadDropzone"] div {
-        color: #00ff41 !important;
+        color: #8b949e !important;
     }
 
-    /* Botão Profissional e Legível */
+    /* Botão Sofisticado (Borda Fina e Elegante) */
     .stButton>button {
         width: 100%;
-        background-color: #0000;
-        color: #0b0e14 !important;
-        border-radius: 6px;    
-        border: 0 4px 15px rgba(0, 255, 65, 0.1);
-        font-weight: 900;
-        font-size: 1.1rem;
+        background-color: transparent;
+        color: #00c853 !important;
+        border: 1px solid #00c853;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
         height: 3.5em;
-        transition: 0.3s;
-        box-shadow: 0 4px 15px rgba(0, 255, 65, 0.1);
+        transition: all 0.3s ease;
+        margin-top: 20px;
     }
 
     .stButton>button:hover {
-        background-color: #018723;
-        box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+        background-color: #00c853;
+        color: #0b0e14 !important;
+        box-shadow: 0 0 20px rgba(0, 200, 83, 0.4);
         transform: translateY(-2px);
     }
 
-    /* Caixa do Relatório Final */
+    /* Caixa do Relatório Final (Documento Técnico) */
     .report-box {
-        background-color: #1a1f29;
-        border-left: 5px solid #00ff41;
-        padding: 20px;
-        border-radius: 0 8px 8px 0;
-        color: #f0f0f0;
+        background-color: rgba(26, 31, 41, 0.8);
+        border-left: 4px solid #00c853;
+        padding: 25px;
+        border-radius: 0 10px 10px 0;
+        color: #e0e0e0;
         font-family: 'Consolas', monospace;
+        line-height: 1.6;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
     </style>
     """, unsafe_allow_html=True)
