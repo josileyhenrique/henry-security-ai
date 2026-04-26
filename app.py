@@ -9,81 +9,104 @@ st.set_page_config(
 )
 
 
-# --- 2. ESTILIZAÇÃO SOFISTICADA HENRY SECURITY (Versão Unificada) ---
+# --- 2. ESTILIZAÇÃO ELITE HENRY SECURITY (Versão 3.0) ---
 st.markdown("""
     <style>
-    /* Fundo Dark Profundo */
+    /* Importando fontes sofisticadas */
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500&family=Space+Grotesk:wght@300;500;700&display=swap');
+
     .stApp { 
-        background-color: #0b0e14; 
+        background: radial-gradient(circle at top right, #111827, #0b0e14);
     }
     
-    /* Tipografia Elegante */
-    h1, h2, h3, [data-testid="stMarkdownContainer"] p, label {
-        color: #ffffff !important;
-        font-family: 'Inter', sans-serif !important;
-        letter-spacing: 1px;
-    }
-
-    /* Ajuste do Título Principal para Verde Esmeralda */
+    /* Títulos com Tipografia 'Space Grotesk' */
     h1 {
-        color: #00c853 !important;
-        background: linear-gradient(135deg, #00ffff, #00ff88);
-        letter-spacing: 3px !important;
-        text-transform: uppercase;
+        color: #ffffff !important;
+        font-family: 'Space Grotesk', sans-serif !important;
+        font-weight: 700 !important;
+        letter-spacing: -1px !important;
+        font-size: 3rem !important;
+        margin-bottom: 0px !important;
     }
 
-    /* Área de Upload Estilo Glassmorphism */
+    h3, p, label {
+        color: #9ca3af !important;
+        font-family: 'Space Grotesk', sans-serif !important;
+        font-weight: 300 !important;
+    }
+
+    /* Badge 'PRO' ou Status */
+    .status-badge {
+        background: rgba(0, 200, 83, 0.1);
+        color: #00c853;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        border: 1px solid rgba(0, 200, 83, 0.3);
+        display: inline-block;
+        margin-bottom: 20px;
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Área de Ingestão de Dados (Uploader) */
     [data-testid="stFileUploader"] {
-        border: 1px solid rgba(0, 200, 83, 0.2);
-        background-color: rgba(22, 27, 34, 0.5);
-        backdrop-filter: blur(10px);
-        padding: 30px;
-        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: rgba(17, 24, 39, 0.7);
+        backdrop-filter: blur(20px);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
 
-    /* Cores dos textos internos do Uploader */
-    [data-testid="stFileUploader"] label, 
-    [data-testid="stFileUploader"] small, 
-    [data-testid="stFileUploadDropzone"] div {
-        color: #8b949e !important;
-    }
-
-    /* Botão Sofisticado (Borda Fina e Elegante) */
+    /* Botão de Comando (Sofisticação em cada pixel) */
     .stButton>button {
         width: 100%;
-        background-color: transparent;
-        color: #00c853 !important;
-        border: 1px solid #00c853;
-        border-radius: 4px;
-        font-weight: bold;
-        font-size: 0.9rem;
-        letter-spacing: 2px;
-        height: 3.5em;
-        transition: all 0.3s ease;
-        margin-top: 20px;
+        background: linear-gradient(135deg, #00c853 0%, #009624 100%);
+        color: #0b0e14 !important;
+        border-radius: 12px;
+        border: none;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 500;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        height: 4em;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 10px 20px rgba(0, 200, 83, 0.2);
     }
 
     .stButton>button:hover {
-        background-color: #00c853;
-        color: #0b0e14 !important;
-        box-shadow: 0 0 20px rgba(0, 200, 83, 0.4);
-        transform: translateY(-2px);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 200, 83, 0.4);
+        color: #ffffff !important;
     }
 
-    /* Caixa do Relatório Final (Documento Técnico) */
+    /* Caixa de Resposta (Output do Sistema) */
     .report-box {
-        background-color: rgba(26, 31, 41, 0.8);
-        border-left: 4px solid #00c853;
-        padding: 25px;
-        border-radius: 0 10px 10px 0;
-        color: #e0e0e0;
-        font-family: 'Consolas', monospace;
-        line-height: 1.6;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        background-color: #0b0e14;
+        border: 1px solid rgba(0, 200, 83, 0.2);
+        padding: 30px;
+        border-radius: 15px;
+        color: #d1d5db;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.95rem;
+        line-height: 1.8;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .report-box::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; width: 4px; height: 100%;
+        background: #00c853;
     }
     </style>
     """, unsafe_allow_html=True)
 
+# --- CHAMADA DO TÍTULO COM O BADGE ---
+st.markdown('<div class="status-badge">SISTEMA ATIVO V3.0</div>', unsafe_allow_html=True)
+st.title("Henry Security")
+st.subheader("Inteligência Avançada de Logs e Detecção de Ameaças")
 # --- 3. LÓGICA DE BACKEND (Processamento de Dados) ---
 def preparar_logs(texto_bruto):
     """Limpa e limita o tamanho dos logs para otimizar a cota da IA."""
@@ -96,9 +119,6 @@ def preparar_logs(texto_bruto):
 API_KEY = st.secrets["GEMINI_API_KEY"]
 client = genai.Client(api_key=API_KEY)
 
-# --- 4. INTERFACE DO USUÁRIO (Fluxo Linear) ---
-
-st.header("SISTEMA DE ANÁLISE DE LOGS")
 
 # Área de Entrada
 arquivo = st.file_uploader("SISTEMA DE INGESTÃO DE LOGS (.TXT / .LOG)", type=["txt", "log"])
