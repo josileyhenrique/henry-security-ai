@@ -128,18 +128,19 @@ if arquivo:
     logs_prontos = preparar_logs(conteudo_bruto)
     
     st.info(f"SISTEMA PRONTO: {len(logs_prontos.splitlines())} linhas de dados normalizadas.")
-
-    # Ação de Análise
+# Ação de Análise
     if st.button("EXECUTAR PROTOCOLO DE ANÁLISE"):
-    progresso = st.progress(0)
-    for i in range(100):
-        time.sleep(0.01) # Simula carregamento
-        progresso.progress(i + 1)
-    
-    with st.spinner("AGENT HENRY ANALISANDO PADRÕES..."):
-               
+        try:
+            # 1. Barra de progresso (Agora identada corretamente)
+            progresso = st.progress(0)
+            for i in range(100):
+                time.sleep(0.01)  # Simula o carregamento dos módulos
+                progresso.progress(i + 1)
+            
+            # 2. Chamada da IA
+            with st.spinner("AGENT HENRY ANALISANDO PADRÕES..."):
                 response = client.models.generate_content(
-                    model="gemini-2.5-flash",
+                    model="gemini-1.5-flash", # Mantendo o 1.5 para estabilidade
                     contents=(
                         "Atue como um Especialista Sênior em Blue Team. "
                         "Analise os logs a seguir, identifique ataques (SQLi, Brute Force, etc.) "
@@ -148,17 +149,20 @@ if arquivo:
                     )
                 )
                 
+                # Remove a barra de progresso após finalizar
+                progresso.empty()
+                
                 st.success("PROTOCOLO FINALIZADO COM SUCESSO.")
                 
                 # Exibição do Relatório
                 st.markdown("### 📋 RELATÓRIO TÉCNICO DE SEGURANÇA")
                 st.markdown(f'<div class="report-box">{response.text}</div>', unsafe_allow_html=True)
                 
-            except Exception as e:
-                if "429" in str(e):
-                    st.error("⚠️ QUOTA EXCEDIDA: O motor de IA está em cooldown. Aguarde 60 segundos.")
-                else:
-                    st.error(f"FALHA CRÍTICA NO MOTOR: {e}")
+        except Exception as e:
+            if "429" in str(e):
+                st.error("⚠️ QUOTA EXCEDIDA: O motor de IA está em cooldown. Aguarde 60 segundos.")
+            else:
+                st.error(f"FALHA CRÍTICA NO MOTOR: {e}")
 
 # --- 5. RODAPÉ ---
 st.divider()
