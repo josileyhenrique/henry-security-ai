@@ -131,8 +131,12 @@ if arquivo:
 
     # Ação de Análise
     if st.button("EXECUTAR PROTOCOLO DE ANÁLISE"):
-        with st.spinner("🚀 AGENTE HENRY EM OPERAÇÃO..."):
-            try:
+    progresso = st.progress(0)
+    for i in range(100):
+        time.sleep(0.01) # Simula carregamento
+        progresso.progress(i + 1)
+    
+    with st.spinner("AGENT HENRY ANALISANDO PADRÕES..."):
                
                 response = client.models.generate_content(
                     model="gemini-2.5-flash",
